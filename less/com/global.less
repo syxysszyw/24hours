@@ -1,0 +1,34 @@
+@import 'variable';
+@import 'util';
+
+
+html{
+    font-size: 100px;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    line-height: 1.6;
+    // font-size: 10px;
+    font-family: "Helvetica-Neue", "Helvetica", 'Microsoft Yahei', Arial, sans-serif;
+    // font-family: sans-serif; // 1
+    -ms-text-size-adjust: 100%; // 2
+    -webkit-text-size-adjust: 100%; // 2
+    text-align: left;
+    .no_select();
+}
+body{
+    font-size: .14rem;
+}
+a{
+    .setTapColor();
+    text-decoration: none;
+}
+ul,ol,li{
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}

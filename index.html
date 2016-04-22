@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>标题标题</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- Demo styles -->
+    <style>
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        /*text-align: center;*/
+        /*font-size: 18px;*/
+        /*background: #fff;*/
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- 横屏提示代码 [[ -->
+    <div id="orientation_hinter" class="landscape">
+        <div class="hinter_phone"><i></i></div>
+        <div class="hinter_rotate"></div>
+        <div class="hinter_text landscape">竖屏体验效果更佳</div>
+        <div class="hinter_text portrait">横屏体验效果更佳</div>
+    </div>
+    <!-- 横屏提示代码 ]] -->
+
+    <!-- 竖屏提示代码 [[ -->
+    <!-- <div id="orientation_hinter" class="portrait">
+        <div class="hinter_phone"><i></i></div>
+        <div class="hinter_rotate"></div>
+        <div class="hinter_text landscape">竖屏体验效果更佳</div>
+        <div class="hinter_text portrait">横屏体验效果更佳</div>
+    </div> -->
+    <!-- 竖屏提示代码 ]] -->
+
+
+
+    <!-- LOADING代码 [[ -->
+    <div class="preloader" style="opacity: 0;">
+        <div class="preloader-text">已加载<span class="preloader-percent percent">0%</span></div>
+    </div>
+    <!-- LOADING代码 ]] -->
+
+
+    <!-- 页面主体 [[ -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="wrap">
+                    <div class="pic pic-blur pic-1"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="wrap">
+                    <div class="pic pic-blur pic-2"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+    </div>
+    <!-- 页面主体 ]] -->
+
+
+    <!-- 音频代码 [[ -->
+    <a href="javascript:;" id="bgMusicContr" class="music"></a>
+    <audio id="bgMusic" src="https://demo.cdc.im/luke/wechatPro/assets/media/music.1dfb.mp3" loop="" preload="auto"></audio>
+    <!-- 音频代码 ]] -->
+
+
+
+    <!-- Swiper JS -->
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/swiper.jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="./js/preloader.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    (function() {
+
+        'use strict';
+        // 预加载资源
+        var preload = [
+            // './media/music.1dfb.mp3',
+            './images/bg1.jpg',
+            './images/bg2.jpg',
+            './images/data/sound@2x.257e.png',
+            './images/data/sound_muted@2x.a2c6.png',
+            './images/data/testloading2',
+            './images/data/testloading3',
+            './images/data/testloading4',
+            './images/data/testloading5',
+            './images/data/testloading6',
+            './images/data/testloading7',
+            './images/data/testloading8',
+            './images/data/testloading9',
+            './images/data/testloading10',
+            './images/data/testloading11',
+            './images/data/testloading12',
+            './images/data/testloading13',
+            './images/data/testloading14'
+        ];
+
+
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true
+        });
+
+
+        // var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
+
+        // wx.ready(function() {
+
+        //     // 分享到朋友圈
+        //     wx.onMenuShareTimeline({
+        //         title: '标题标题标题标题', // 分享标题
+        //         // link: 'http://wj.qq.com/activities/2016/04/cdc_ten/index.html', // 分享链接
+        //         link: window.location.href,
+        //         imgUrl: 'http://www.padding-left.com/wp-content/jt/24hours/images/cover.jpg', // 分享图标
+        //         success: function () {
+        //             // 用户确认分享后执行的回调函数
+        //             typeof MtaH5 !== 'undefined' && MtaH5.clickStat('cdc10.sharetimeline');
+        //         },
+        //         cancel: function () {
+        //             // 用户取消分享后执行的回调函数
+        //         }
+        //     });
+
+        //     // 分享给好友
+        //     wx.onMenuShareAppMessage({
+        //         title: '标题标题标题标题', // 分享标题
+        //         desc: 'descdescdesc', // 分享描述
+        //         // link: 'http://wj.qq.com/activities/2016/04/cdc_ten/index.html', // 分享链接
+        //         link: window.location.href,
+        //         imgUrl: 'http://www.padding-left.com/wp-content/jt/24hours/images/cover.jpg', // 分享图标
+        //         type: 'link', // 分享类型,music、video或link，不填默认为link
+        //         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+        //         success: function () {
+        //             // 用户确认分享后执行的回调函数
+        //             typeof MtaH5 !== 'undefined' && MtaH5.clickStat('cdc10.sharefriend');
+        //         },
+        //         cancel: function () {
+        //             // 用户取消分享后执行的回调函数
+        //         }
+        //     });
+        // });
+
+        
+
+        var cUrl = window.location.href.replace(window.location.hash, '');
+        $.ajax({
+            url: 'http://5minute.cdc.qq.com/wxjssdk-signature/sign.php',
+            type: 'GET',
+            data: {url: cUrl},
+            dataType: 'jsonp',
+            success: function(res) {
+                wx.config({
+                        debug: false,
+                        appId: res.data.appId,
+                        timestamp: res.data.timestamp,
+                        nonceStr: res.data.nonceStr,
+                        signature: res.data.signature,
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ',
+                            'onMenuShareWeibo',
+                            'onMenuShareQZone',
+                            'startRecord',
+                            'stopRecord',
+                            'onVoiceRecordEnd',
+                            'playVoice',
+                            'pauseVoice',
+                            'stopVoice',
+                            'onVoicePlayEnd',
+                            'uploadVoice',
+                            'downloadVoice'
+                        ]
+                });
+            }
+        });
+
+    })();
+    </script>
+    <script src="./js/comm.js"></script>
+</body>
+</html>

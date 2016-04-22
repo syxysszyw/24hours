@@ -1,0 +1,105 @@
+/*横屏提示代码 START*/
+  #orientation_hinter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #131313;
+    z-index: 999;
+    display: none;
+  }
+  #orientation_hinter .hinter_phone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -57px;
+  }
+  #orientation_hinter .hinter_phone i {
+    display: block;
+    width: 114px;
+    height: 60px;
+    background: url(./images/landscape_phone@2x.png) no-repeat center center transparent;
+    background-size: 114px 60px;
+    -webkit-animation: rotateHint 2.6s ease-in infinite;
+        animation: rotateHint 2.6s ease-in infinite;
+  }
+  #orientation_hinter.portrait .hinter_phone {
+      -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  }
+  #orientation_hinter .hinter_rotate {
+    width: 155px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -15px 0 0 -77px;
+    background: url(./images/landscape_hint@2x.png) no-repeat center center transparent;
+    background-size: 155px 30px;
+  }
+  #orientation_hinter .hinter_text {
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+    left: 0;
+    color: #bbbbbb;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1;
+    display: none;
+  }
+  @-webkit-keyframes rotateHint {
+    0% {
+      -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+      opacity: 0;
+    }
+  }
+  @keyframes rotateHint {
+    0% {
+      -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+      opacity: 0;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #orientation_hinter.landscape,
+    #orientation_hinter.landscape .landscape {
+      display: block;
+    }
+  }
+  @media screen and (orientation: portrait) {
+    #orientation_hinter.portrait,
+    #orientation_hinter.portrait .portrait {
+      display: block;
+    }
+  }
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 60px 0;
+  }
+/*横屏提示代码 END*/  
