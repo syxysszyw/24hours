@@ -5,6 +5,7 @@
     <title>标题标题</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/animate.css">
 
     <!-- Demo styles -->
     <style>
@@ -56,8 +57,14 @@
 
 
     <!-- LOADING代码 [[ -->
-    <div class="preloader" style="opacity: 0;">
-        <div class="preloader-text">已加载<span class="preloader-percent percent">0%</span></div>
+    <div class="preloader">
+        <div class="preloader-container">
+            <div class="preloader-img">
+                
+            </div>
+            <div class="preloader-text">已加载<span class="preloader-percent percent">0%</span></div>
+        </div>
+        
     </div>
     <!-- LOADING代码 ]] -->
 
@@ -109,26 +116,98 @@
             './images/bg2.jpg',
             './images/data/sound@2x.257e.png',
             './images/data/sound_muted@2x.a2c6.png',
-            './images/data/testloading2',
-            './images/data/testloading3',
-            './images/data/testloading4',
-            './images/data/testloading5',
-            './images/data/testloading6',
-            './images/data/testloading7',
-            './images/data/testloading8',
-            './images/data/testloading9',
-            './images/data/testloading10',
-            './images/data/testloading11',
-            './images/data/testloading12',
-            './images/data/testloading13',
-            './images/data/testloading14'
+            './images/data/testloading2.jpg',
+            './images/data/testloading3.jpg',
+            './images/data/testloading4.jpg',
+            './images/data/testloading5.jpg',
+            './images/data/testloading6.jpg',
+            './images/data/testloading7.jpg',
+            './images/data/testloading8.jpg',
+            './images/data/testloading9.jpg',
+            './images/data/testloading10.jpg',
+            './images/data/testloading11.jpg',
+            './images/data/testloading12.jpg',
+            './images/data/testloading13.jpg'
         ];
 
+        var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
+        var transitionEvent = whichTransitionEvent();
+        var animationEvent = whichAnimationEvent();
 
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            paginationClickable: true
+
+        function whichTransitionEvent(){
+            var t,
+                el = document.createElement("fakeelement");
+
+            var transitions = {
+                "transition"      : "transitionend",
+                "OTransition"     : "oTransitionEnd",
+                "MozTransition"   : "transitionend",
+                "WebkitTransition": "webkitTransitionEnd"
+            }
+
+            for (t in transitions){
+                if (el.style[t] !== undefined){
+                    return transitions[t];
+                }
+            }
+        }
+
+        function whichAnimationEvent(){
+            var t,
+                el = document.createElement("fakeelement");
+
+            var animations = {
+                "animation"      : "animationend",
+                "OAnimation"     : "oAnimationEnd",
+                "MozAnimation"   : "animationend",
+                "WebkitAnimation": "webkitAnimationEnd"
+            }
+
+            for (t in animations){
+                if (el.style[t] !== undefined){
+                    return animations[t];
+                }
+            }
+        }
+        
+        // 预加载动画
+        new preloader({
+            files: preload,
+            progress: function(err, response, percent) {
+                $('.percent').text(percent + '%');
+            },
+            complete: function() {
+                // 隐藏加载器
+                $('.preloader').addClass('loaded');
+                $('.preloader').on(animationEvent, function() {
+                    $('.preloader').remove();
+                    // setTimeout(function() {
+                    //     $('.point .avatar').remove();
+                    // }, 200);
+                });
+
+                // window.mySlider = new iSlider(sliderOpts);
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true
+                });
+                if (typeof localStorage !== undefined) {
+                    var musicDefault = localStorage.getItem('musicDefault');
+                    if(musicDefault === 'true') {
+                        bgAudio.play();
+                    }
+                } else {
+                    bgAudio.play();
+                }
+            }
         });
+
+
+        // var swiper = new Swiper('.swiper-container', {
+        //     pagination: '.swiper-pagination',
+        //     paginationClickable: true
+        // });
 
 
         // var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';

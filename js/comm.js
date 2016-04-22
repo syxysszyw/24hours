@@ -54,11 +54,15 @@ $(function(){
     //         $('.preloader').on(animationEvent, function() {
     //             $('.preloader').remove();
     //             setTimeout(function() {
-    //                 $('.point .avatar').remove();
+    //                 // $('.point .avatar').remove();
     //             }, 200);
     //         });
 
-    //         window.mySlider = new iSlider(sliderOpts);
+    //         // window.mySlider = new iSlider(sliderOpts);
+    //         var swiper = new Swiper('.swiper-container', {
+    //             pagination: '.swiper-pagination',
+    //             paginationClickable: true
+    //         });
     //         if (typeof localStorage !== undefined) {
     //             var musicDefault = localStorage.getItem('musicDefault');
     //             if(musicDefault === 'true') {
