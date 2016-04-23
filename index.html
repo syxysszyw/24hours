@@ -4,8 +4,37 @@
     <meta charset="utf-8">
     <title>标题标题</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script type="text/javascript">
+        
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+    function resize() {
+        var html = document.documentElement,
+        fontSize = 100,//100为根元素字体大小
+        pageW = 375,//设计稿页面宽度
+        pageH = 604,//设计稿页面高度
+        //根据具体情况修改宽高值，可以用页面主体内容的宽高值
+        wk = 375;//页面大小缩放的上限阀值，当页面大小超过此值时将不再放大页面
+        hk = 604;//页面大小缩放的上限阀值，当页面大小超过此值时将不再放大页面
+        if (html.clientWidth / html.clientHeight > pageW / pageH) {
+            if (html.clientHeight <= hk) {
+                html.style.fontSize = html.clientHeight / pageH * fontSize + "px";
+            } else {
+                html.style.fontSize = hk / pageH * fontSize + "px";
+            }
+        } else {
+            if (html.clientWidth <= wk) {
+                html.style.fontSize = html.clientWidth / pageW * fontSize + "px";
+            } else {
+                html.style.fontSize = wk / pageW * fontSize + "px";
+            }
+        }
+    }
+    resize();
+    
+    </script>
 
     <!-- Demo styles -->
     <style>
@@ -64,7 +93,6 @@
             </div>
             <div class="preloader-text">已加载<span class="preloader-percent percent">0%</span></div>
         </div>
-        
     </div>
     <!-- LOADING代码 ]] -->
 
@@ -72,18 +100,74 @@
     <!-- 页面主体 [[ -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide s1">
                 <div class="wrap">
-                    <div class="pic pic-blur pic-1"></div>
+                    <div class="wrap__pic wrap__pic-blur wrap__pic-1"></div>
+                    <div class="wrap__text">我们正在寻找希望</div>
+                </div>
+            </div> -->
+            <div class="swiper-slide s2">
+                <div class="wrap">
+                    <div class="wrap__pic wrap__pic-blur wrap__pic-2"></div>
+                    <div class="wrap__right-top">
+                        感谢有你的帮助
+                        <div class="wrap__right-top-item i1"></div>
+                        <div class="wrap__right-top-item i2"></div>
+                        <div class="wrap__right-top-item i3"></div>
+                        <div class="wrap__right-top-item i4"></div>
+                    </div>
+                    <div class="wrap__left-bottom">
+                        <p class="name">刘欣欣 · 贵州安顺</p>
+                        <p class="proj">—— 点亮爱心书桌</p>
+                    </div>
+                    <!-- <div class="wrap__text">
+                        
+                    </div> -->
                 </div>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide s3">
                 <div class="wrap">
-                    <div class="pic pic-blur pic-2"></div>
+                    <div class="wrap__pic wrap__pic-blur wrap__pic-3"></div>
+                    <div class="wrap__right-top">
+                        感谢有你的帮助
+                        <div class="wrap__right-top-item i1"></div>
+                        <div class="wrap__right-top-item i2"></div>
+                        <div class="wrap__right-top-item i3"></div>
+                        <div class="wrap__right-top-item i4"></div>
+                        <div class="wrap__right-top-item i5"></div>
+                        <div class="wrap__right-top-item i6"></div>
+                        <div class="wrap__right-top-item i7"></div>
+                    </div>
+                    <div class="wrap__left-bottom">
+                        <p class="name">刘欣欣 · 贵州安顺</p>
+                        <p class="proj">—— 点亮爱心书桌</p>
+                    </div>
                 </div>
             </div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide s4">
+                <div class="wrap">
+                    <div class="wrap__pic wrap__pic-blur wrap__pic-4"></div>
+                    <div class="wrap__right-top">
+                        感谢有你的帮助
+                        <div class="wrap__right-top-item i1"></div>
+                        <div class="wrap__right-top-item i2"></div>
+                        <div class="wrap__right-top-item i3"></div>
+                        <div class="wrap__right-top-item i4"></div>
+                        <div class="wrap__right-top-item i5"></div>
+                        <div class="wrap__right-top-item i6"></div>
+                        <div class="wrap__right-top-item i7"></div>
+                    </div>
+                    <div class="wrap__left-bottom">
+                        <p class="name">李研顺 · 江苏泉州</p>
+                        <p class="proj">—— 盲胞阅读</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide s5">
+                <div class="wrap">
+                    <div class="wrap__pic wrap__pic-blur wrap__pic-5"></div>
+                </div>
+            </div>
         </div>
         <!-- Add Pagination -->
         <!-- <div class="swiper-pagination"></div> -->
@@ -114,20 +198,12 @@
             // './media/music.1dfb.mp3',
             './images/bg1.jpg',
             './images/bg2.jpg',
-            './images/data/sound@2x.257e.png',
-            './images/data/sound_muted@2x.a2c6.png',
-            './images/data/testloading2.jpg',
-            './images/data/testloading3.jpg',
-            './images/data/testloading4.jpg',
-            './images/data/testloading5.jpg',
-            './images/data/testloading6.jpg',
-            './images/data/testloading7.jpg',
-            './images/data/testloading8.jpg',
-            './images/data/testloading9.jpg',
-            './images/data/testloading10.jpg',
-            './images/data/testloading11.jpg',
-            './images/data/testloading12.jpg',
-            './images/data/testloading13.jpg'
+            './images/bg3.jpg',
+            './images/bg4.jpg',
+            './images/bg5.jpg',
+            './images/sound.png',
+            './images/sound_muted.png',
+
         ];
 
         var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
@@ -186,20 +262,20 @@
                     //     $('.point .avatar').remove();
                     // }, 200);
                 });
-
-                // window.mySlider = new iSlider(sliderOpts);
                 var swiper = new Swiper('.swiper-container', {
                     pagination: '.swiper-pagination',
                     paginationClickable: true
                 });
-                if (typeof localStorage !== undefined) {
-                    var musicDefault = localStorage.getItem('musicDefault');
-                    if(musicDefault === 'true') {
-                        bgAudio.play();
-                    }
-                } else {
-                    bgAudio.play();
-                }
+
+                // 每次打开的时候判断一下localstorage，是否播放音乐
+                // if (typeof localStorage !== undefined) {
+                //     var musicDefault = localStorage.getItem('musicDefault');
+                //     if(musicDefault === 'true') {
+                //         bgAudio.play();
+                //     }
+                // } else {
+                //     bgAudio.play();
+                // }
             }
         });
 
