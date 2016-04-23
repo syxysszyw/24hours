@@ -1,0 +1,19 @@
+@import url(../com/variable);
+@import url(../mixin/setPos);
+
+.modal{	
+	.size(.4rem);
+	background-color: red;
+	.setBoxCenter();
+	z-index: @modal_index;
+	&-mask{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: rgba(0, 0, 0, .8);
+		z-index: @modal_index - 1;
+		display: none;
+	}
+}
