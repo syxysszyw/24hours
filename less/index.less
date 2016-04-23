@@ -7,28 +7,7 @@
 @import url(com/preloader);
 @import url(com/global);
 
+@import url(mod/mod_wrap);
+@import url(mod/icon/rt-icon);
 
-.wrap{
-    width: 100%;
-    height: 100%;
-    .pic{
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        &-1{
-            background-image: url(../images/bg1.jpg);
-        }
-        &-2{
-            background-image: url(../images/bg2.jpg);
-        }
-        &-blur{
-            -webkit-filter:blur(20px);
-            transition: -webkit-filter 2s linear;
-            .swiper-slide-active &{
-                -webkit-filter:blur(0px);
-            }
-        }
-    }
-    
-}
+
