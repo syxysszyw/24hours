@@ -1,0 +1,68 @@
+@import url(../com/variable);
+// loading
+.preloader-img{
+    position: relative;
+    .red-heart, .pink-heart1,.pink-heart2{
+        position: absolute;
+        width: .32rem;
+        height: .28rem;
+        left: 50%;
+        top: 50%;
+        margin-left: -.16rem;
+        margin-top: -.14rem;
+        background-repeat: no-repeat;
+        background-size: .32rem .28rem;
+    }
+    .red-heart{
+        background-image: url(../images/loading_1.png);
+        z-index: @loading_index + 3;
+    }
+    .pink-heart1,.pink-heart2{
+        background-image: url(../images/loading_2.png);
+        animation-duration: @right-top-item-dur;
+        animation-timing-function: ease-in;
+        // animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        transform-origin: 50% 50%;
+        transform: scale(1);
+    }
+    .pink-heart1{
+        animation-name: heartScale1;
+        z-index: @loading_index + 1;
+        animation-duration: 1.5s;
+        animation-delay: .5s;
+    }
+    .pink-heart2{
+        animation-name: heartScale2;
+        z-index: @loading_index + 2;
+        animation-duration: 1.5s;
+        animation-delay: .5s;
+    }
+}
+
+@keyframes heartScale1 {
+	0% {
+		transfrom: scale(1);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(1.5);
+		opacity: 0;
+	}
+	// 100%{
+	// 	transfrom: scale(1);
+	// }
+}
+@keyframes heartScale2 {
+	0% {
+		transfrom: scale(1);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(1.2);
+		opacity: 0;
+	}
+	// 100%{
+	// 	transfrom: scale(1);
+	// }
+}

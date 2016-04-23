@@ -1,0 +1,22 @@
+@import url(../com/variable);
+@import url(../com/util);
+@import url(../mixin/setPos);
+
+
+.dialog{
+	.setBoxCenter();
+	width: 90%;
+	height: 80%;
+	background-color: red;
+	z-index: @dialog_index;
+	&__close{
+		position: absolute;
+		top: -.1rem;
+		right: -.1rem;
+		.size(.2rem);
+		background-color: yellow;
+	}
+	&__video{
+		width: 100%;
+	}
+}

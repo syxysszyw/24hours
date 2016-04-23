@@ -70,14 +70,92 @@
         z-index: 350;
     }
     &-img{
-        width: 100px;
-        height: 100px;
-        background-color: #ff9;
+        position: relative;
+        // width: .5rem;
+        width: 100%;
+        height: .5rem;
+        // background-color: #ff9;
+        .red-heart, .pink-heart2,.pink-heart3{
+            position: absolute;
+            width: .32rem;
+            height: .28rem;
+            left: 50%;
+            top: 50%;
+            margin-left: -.16rem;
+            margin-top: -.14rem;
+            background-repeat: no-repeat;
+            background-size: .32rem .28rem;
+            animation-timing-function: ease-in;
+            // animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            transform-origin: 50% 50%;
+            transform: scale(1);
+            animation-duration: 1.3s;
+        }
+        .red-heart{
+            background-image: url(../images/loading_1.png);
+            z-index: @loading_index + 3;
+            animation-name: heartScale1;
+            animation-delay: .1s;
+        }
+        .pink-heart2,.pink-heart3{
+            background-image: url(../images/loading_2.png);
+        }
+        .pink-heart3{
+            animation-name: heartScale3;
+            animation-delay: .3s;
+            z-index: @loading_index + 2;
+        }
+        .pink-heart2{
+            animation-name: heartScale2;
+            animation-delay: .3s;
+            z-index: @loading_index + 1;
+        }
     }
     &.loaded{
         -webkit-animation: fadeOut .3s linear;
         animation: fadeOut .3s linear;
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both
+    }
+}
+
+@keyframes heartScale1 {
+    0% {
+        transfrom: scale(1);
+        // opacity: 1;
+    }
+    40%{
+        transform: scale(1.1);
+        // opacity: 0;
+    }
+    100%{
+        // opacity: 0;
+    }
+}
+@keyframes heartScale2 {
+    0% {
+        transfrom: scale(1);
+        opacity: 1;
+    }
+    40%{
+        transform: scale(1.6);
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes heartScale3 {
+    0% {
+        transfrom: scale(1);
+        opacity: 1;
+    }
+    40%{
+        transform: scale(2);
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
     }
 }
