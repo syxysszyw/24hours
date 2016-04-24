@@ -777,6 +777,26 @@ button.swiper-pagination-bullet {
   -webkit-animation: rotating 2s linear infinite both;
   animation: rotating 2s linear infinite both;
 }
+@-webkit-keyframes musicloop {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes musicloop {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 /*横屏提示代码 START*/
 #orientation_hinter {
   position: fixed;
@@ -888,7 +908,7 @@ h1 {
   width: 100%;
   height: 100%;
   z-index: 300;
-  background-color: #fff;
+  background-color: #e60000;
 }
 .preloader-container {
   position: absolute;
@@ -903,6 +923,7 @@ h1 {
   position: relative;
   width: 100%;
   height: .5rem;
+  color: #fff;
 }
 .preloader-img .red-heart,
 .preloader-img .pink-heart2,
@@ -958,6 +979,9 @@ h1 {
   animation: fadeOut .3s linear;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+.preloader-text {
+  color: #fff;
 }
 @-webkit-keyframes heartScale1 {
   0% {
@@ -1077,6 +1101,209 @@ h6 {
   width: 100%;
   height: 100%;
   text-align: left;
+  background-color: #e60000;
+}
+.s1 .wrap {
+  box-sizing: border-box;
+  padding: .4rem;
+  color: #fff;
+  font-size: .27rem;
+}
+.s1 .wrap .author {
+  font-size: .16rem;
+}
+.s1 .wrap .author.sq-6 {
+  position: absolute;
+}
+.s1 .wrap .tips {
+  position: absolute;
+  bottom: .4rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  font-size: .16rem;
+}
+.s1 .wrap .txt-list {
+  position: relative;
+}
+.s1 .wrap .sq {
+  position: absolute;
+  font-size: .2rem;
+  opacity: 0;
+  -webkit-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+  -webkit-animation-duration: .8s;
+          animation-duration: .8s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.s1 .wrap .sq-1 {
+  top: 0;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.s1 .wrap .sq-2 {
+  top: 0.5rem;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.s1 .wrap .sq-3 {
+  top: 1rem;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+.s1 .wrap .sq-4 {
+  top: 1.5rem;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+.s1 .wrap .sq-5 {
+  top: 2rem;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+.s1 .wrap .sq-6 {
+  top: 3rem;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+.s1 .wrap .sq-7 {
+  display: inline-block;
+  left: 0;
+  width: 100%;
+  bottom: .4rem;
+  text-align: center;
+  font-size: .14rem;
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+.page-down {
+  position: absolute;
+  width: 100%;
+  height: .12rem;
+  bottom: .1rem;
+  z-index: 301;
+  opacity: 0;
+  -webkit-animation: pagearrow 2s 8s linear infinite;
+          animation: pagearrow 2s 8s linear infinite;
+}
+.page-down .icon {
+  position: absolute;
+  display: block;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: .32rem;
+  height: .12rem;
+  background-size: 100% 100%;
+  background-image: url(../images/downicon.png);
+  background-repeat: no-repeat;
+}
+@-webkit-keyframes pagearrow {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, -10px);
+            transform: translate(0, -10px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes pagearrow {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, -10px);
+            transform: translate(0, -10px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+.test-special {
+  position: absolute;
+  width: 3.01rem;
+  height: 2.52rem;
+}
+.test-special .red,
+.test-special .blue,
+.test-special .yellow,
+.test-special .green,
+.test-special .purple {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-size: 3.01rem 2.52rem;
+}
+.swiper-slide-active .test-special .red,
+.swiper-slide-active .test-special .blue,
+.swiper-slide-active .test-special .yellow,
+.swiper-slide-active .test-special .green,
+.swiper-slide-active .test-special .purple {
+  -webkit-animation-name: showColor;
+          animation-name: showColor;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.test-special .red {
+  background-image: url(../images/red1.png);
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+  -webkit-animation-duration: 1.3s;
+          animation-duration: 1.3s;
+}
+.test-special .blue {
+  background-image: url(../images/blue1.png);
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+  -webkit-animation-duration: 1.3s;
+          animation-duration: 1.3s;
+}
+.test-special .yellow {
+  background-image: url(../images/yellow1.png);
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+  -webkit-animation-duration: 1.3s;
+          animation-duration: 1.3s;
+}
+.test-special .green {
+  background-image: url(../images/green1.png);
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
+  -webkit-animation-duration: 1.3s;
+          animation-duration: 1.3s;
+}
+.test-special .purple {
+  background-image: url(../images/purple1.png);
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-duration: 1.3s;
+          animation-duration: 1.3s;
+}
+@-webkit-keyframes showColor {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes showColor {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .dialog {
   position: absolute;
@@ -1085,7 +1312,7 @@ h6 {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 2.65rem;
-  height: 4rem;
+  padding-bottom: .1rem;
   border-radius: .12rem;
   background-color: red;
   z-index: 500;
@@ -1160,6 +1387,48 @@ h6 {
   font-size: .14rem;
   font-weight: 100;
 }
+.dialog__ft {
+  position: relative;
+  margin-top: .15rem;
+  height: .4rem;
+}
+.dialog__ft .gongyi-logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) scale(0.6);
+          transform: translate(-50%, 0) scale(0.6);
+  bottom: .05rem;
+  width: 1.29rem;
+  height: .39rem;
+  background-image: url(../images/99gongyi.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.dialog#dialog-modal .modal__hd {
+  padding: .4rem 0 .2rem 0;
+  text-align: center;
+}
+.dialog#dialog-modal .modal__hd .donate-user-avater {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dialog#dialog-modal .modal__hd .donate-user-avater img {
+  width: 100%;
+  height: 100%;
+}
+.dialog#dialog-modal .modal__bd {
+  padding: 0 .3rem;
+  color: #fff;
+}
+.dialog#dialog-modal .modal__bd .name {
+  font-size: .21rem;
+}
+.dialog#dialog-modal .modal__bd .desc {
+  font-size: .14rem;
+}
 .share-layer {
   position: absolute;
   width: 100%;
@@ -1181,16 +1450,37 @@ h6 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #E60000;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-.love__title {
+.love__txt-area {
   position: absolute;
   width: 100%;
-  top: .55rem;
+  bottom: .4rem;
   margin-top: -0.2rem;
   font-size: .2rem;
   color: #fff;
   text-align: center;
+}
+.swiper-slide-active .love__txt-area {
+  -webkit-animation: fadeInUp 0.4s 1s ease-in both;
+          animation: fadeInUp 0.4s 1s ease-in both;
+}
+.love__txt-area .pay {
+  display: none;
+}
+.love__txt-area .pay.current {
+  display: block;
+}
+.love__txt-area .pay.p-lge0 {
+  font-size: .14rem;
+}
+.love__txt-area .pay.p-lge0 span {
+  font-style: .12rem;
+}
+.love__txt-area .pay.p-lge0 button {
+  display: inline-block;
+  width: 60%;
+  margin-top: .06rem;
 }
 .love__item {
   position: absolute;
@@ -1215,7 +1505,6 @@ h6 {
 .love__item .avater img {
   width: 100%;
   height: 100%;
-  display: none;
 }
 .love__item.li-1 {
   background-image: url(../images/c_l1.png);
@@ -1391,7 +1680,7 @@ h6 {
 }
 .btn {
   display: block;
-  margin-top: .2rem;
+  margin-top: .1rem;
   width: 100%;
   padding: .06rem 0;
   box-sizing: border-box;
@@ -1405,9 +1694,8 @@ h6 {
   border-radius: .07rem;
 }
 .modal {
-  width: 0.4rem;
-  height: 0.4rem;
-  background-color: red;
+  width: 2.6rem;
+  background-color: #E60000;
   position: absolute;
   top: 50%;
   left: 50%;

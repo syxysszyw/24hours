@@ -63,7 +63,9 @@
 </head>
 <body>
 
-
+    <div style="position: absolute; opacity: 0; z-index: -1; width: 0; height: 0; overflow: hidden;">
+        <img src="./images/thumb.png" alt="share_cover">
+    </div>
 
     <!-- 横屏提示代码 [[ -->
     <div id="orientation_hinter" class="landscape">
@@ -108,71 +110,93 @@
                     <div class="wrap__text">我们正在寻找希望</div>
                 </div>
             </div> -->
-            <div class="swiper-slide s1" style="display: none;">
+            <div class="swiper-slide s1">
                 <div class="wrap">
-                    引入页
+                    <!-- <ul class="txt-list">
+                        <li class="sq sq-1">爱之于我，</li>
+                        <li class="sq sq-2">不是肌肤之亲，</li>
+                        <li class="sq sq-3">不是一蔬一饭，</li>
+                        <li class="sq sq-4">她是一种不死的欲望，</li>
+                        <li class="sq sq-5">是我疲惫生活的英雄梦想。</li>
+                    </ul>
+                    <p class="author sq sq-6">—— 杜拉斯</p> -->
+                    <div class="test-special">
+                        <div class="red"></div>
+                        <div class="blue"></div>
+                        <div class="green"></div>
+                        <div class="yellow"></div>
+                        <div class="purple"></div>
+                    </div>
+                    <p class="tips sq sq-7">此刻，让我们爱在一起</p>
                 </div>
             </div>
             <div class="swiper-slide s2">
                 <div class="wrap">
                     <div class="love">
-                        <div class="love__title">
-                            点击笔划，为爱填充
-                        </div>
                         <div class="love__item li-1" data-index="1">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater2.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-2" data-index="2">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater3.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-3" data-index="3">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater1.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-4" data-index="4">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater4.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-5" data-index="5">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater5.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item love__item--uncompleted li-6" data-index="6">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater6.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-7" data-index="7">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater7.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-8" data-index="8">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater8.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item li-9" data-index="9">
                             <div class="avater">
-                                <!-- <img src="" alt=""> -->
+                                <img src="./images/avater9.png" alt="捐赠人">
                             </div>
                         </div>
                         <div class="love__item love__item--uncompleted li-10" data-index="10">
                             <div class="avater">
-                                <img src="" alt="">
+                                <img src="./images/avater10.png" alt="捐赠人">
+                            </div>
+                        </div>
+
+                        <div class="love__txt-area">
+                            <div class="pay current p-0">
+                                <p>点击笔划，为爱填充</p>
+                            </div>
+                            <div class="pay p-lge0">
+                                <!-- <p>再画一笔 <span>或</span></p> -->
+                                <button id="share-love" type="button" class="btn">让朋友一起填充爱</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide s3">
+            <!-- <div class="swiper-slide s3">
                 <div class="wrap">
                     3
                 </div>
@@ -181,10 +205,13 @@
                 <div class="wrap">
                     4
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- Add Pagination -->
         <!-- <div class="swiper-pagination"></div> -->
+        <div class="page-down">
+            <div class="icon"></div>
+        </div>
     </div>
     <!-- 页面主体 ]] -->
 
@@ -192,7 +219,7 @@
 
     <!-- 捐款弹窗 [[ -->
     <div class="dialog-mask"></div>
-    <div class="dialog" id="dialog">
+    <div class="dialog" id="dialog1">
         <div class="dialog__close" id="dialog-close"></div>
         <div class="dialog__love-thumb"></div>
         <div class="dialog__video">
@@ -204,16 +231,50 @@
             <div class="dialog__desc">“爱心书桌”是由我要装修网发起，陕西青少年发展基金会及各地教育局联合主办，家居建材商家参与捐赠的一项长期公益行动。</div>
         </div>
         <div class="dialog__opr">
-            <button type="button" id="donate-btn" class="btn"> 为爱填充 </button>
+            <button type="button" id="donate-btn" class="btn"> 为爱捐赠9.9元 </button>
+        </div>
+        <div class="dialog__ft">
+            <div class="gongyi-logo"></div>
         </div>
     </div>
     <!-- 捐款弹窗 ]] -->
     
 
     <!-- Modal [[ -->
-    <div class="modal-mask"></div>
-    <div class="modal" id="modal" style="display: none;">
-        <p>modal</p>
+    <!-- <div class="modal-mask" style="display: block;"></div>
+    <div class="modal" id="modal">
+        <div class="modal_close">x</div>
+        <div class="modal__hd">
+            <img src="../images/avater1.png" alt="">
+        </div>
+        <div class="modal__bd">
+            <p class="name">陈洁婷</p>
+            <p class="desc">已向“为盲胞阅读”项目
+            <br>捐赠了9.9元</p>
+        </div>  
+        <div class="modal__ft">
+            <div class="gongyi-logo"></div>
+        </div>
+    </div> -->
+    <div class="dialog" id="dialog-modal">
+        <div class="dialog__close" id="dialog-close"></div>
+        <div class="dialog__love-thumb"></div>
+        <div class="modal__hd">
+            <div class="donate-user-avater">
+                <img src="../images/avater1.png" alt="">
+            </div>
+        </div>
+        <div class="modal__bd">
+            <p class="name">陈某某</p>
+            <p class="desc">已向“为盲胞阅读”项目
+            <br>捐赠了9.9元</p>
+        </div>  
+        <div class="modal__ft">
+            <div class="gongyi-logo"></div>
+        </div>
+        <div class="dialog__ft">
+            <div class="gongyi-logo"></div>
+        </div>
     </div>
     <!-- Modal [[ -->
 
@@ -255,6 +316,26 @@
             // './media/music.1dfb.mp3',
             './images/sound.png',
             './images/sound_muted.png',
+            './images/c_l1.png',
+            './images/l1.png',
+            './images/c_l2.png',
+            './images/l2.png',
+            './images/c_l3.png',
+            './images/l3.png',
+            './images/c_l4.png',
+            './images/l4.png',
+            './images/c_l5.png',
+            './images/l5.png',
+            './images/c_l6.png',
+            './images/l6.png',
+            './images/c_l7.png',
+            './images/l7.png',
+            './images/c_l8.png',
+            './images/l8.png',
+            './images/c_l9.png',
+            './images/l9.png',
+            './images/c_l10.png',
+            './images/l10.png',
 
         ];
 
@@ -310,9 +391,6 @@
                 $('.preloader').addClass('loaded');
                 $('.preloader').on(animationEvent, function() {
                     $('.preloader').remove();
-                    // setTimeout(function() {
-                    //     $('.point .avatar').remove();
-                    // }, 200);
                 });
                 var swiper = new Swiper('.swiper-container', {
                     direction: 'vertical',
@@ -331,19 +409,6 @@
                 // }
             }
         });
-
-
-
-
-
-
-        // var swiper = new Swiper('.swiper-container', {
-        //     pagination: '.swiper-pagination',
-        //     paginationClickable: true
-        // });
-
-
-        // var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
 
         wx.ready(function() {
 
@@ -418,10 +483,10 @@
 
 
         var targetLoveItemIndex = 0;
-        var $modal = $('#modal');
+        var $modal = $('#dialog-modal');
         var $modalMask = $('.modal-mask');
         var modalShowTime = 2000;
-        var $dialog = $('#dialog');
+        var $dialog = $('#dialog1');
         var $dialogMask = $('.dialog-mask');
         // 填充爱
         $('.love__item--uncompleted').on(clickEvent, toFillLove);
@@ -442,20 +507,22 @@
                 $dialog.hide();
                 $('.dialog-mask').hide();
                 // “爱”字填充动画
-                $('.love__item').eq(targetLoveItemIndex - 1).removeClass('love__item--uncompleted').addClass('love__item--completed');
-                $('.donating').off(toFillLove);
+                $('.love__item').eq(targetLoveItemIndex).removeClass('love__item--uncompleted').addClass('love__item--completed');
+                $('.love__item--completed').off(toFillLove);
+                $('.p-0').removeClass('current');
+                $('.p-lge0').addClass('current');
             }, 500);
 
             setTimeout(function(){
                 $('.love__item--completed').on(clickEvent,function(){
                     $modal.show();
-                    $modalMask.show();
+                    $dialogMask.show();
 
                     // modal 出现一段时间后自动关闭
-                    setTimeout(function(){
-                        $modal.hide();
-                        $modalMask.hide();
-                    }, modalShowTime);
+                    // setTimeout(function(){
+                    //     $modal.hide();
+                    //     $modalMask.hide();
+                    // }, modalShowTime);
                 })
             }, 800);
         })
@@ -464,17 +531,24 @@
             // console.log($(this).hasClass('love__item--uncompleted'));
             if( !$(this).hasClass('love__item--uncompleted')){
                 $modal.show();
-                $modalMask.show();
-                setTimeout(function(){
-                    $modal.hide();
-                    $modalMask.hide();
-                }, modalShowTime);
+                $dialogMask.show();
+                // setTimeout(function(){
+                //     $modal.hide();
+                //     $modalMask.hide();
+                // }, modalShowTime);
             }
         })
 
+        // 关闭modal
+        // $dialogMask.on(clickEvent, function(){
+        //     // alert('close');
+        //     $(this).hide();
+        //     $('.dialog').hide();
+        // })
+
         // 关闭弹窗
-        $('#dialog-close').on(clickEvent, function(){
-            $dialog.hide();
+        $('.dialog__close').on(clickEvent, function(){
+            $('.dialog').hide();
             $('.dialog-mask').hide();
         })
 
@@ -482,6 +556,10 @@
         $('.share-layer').on(clickEvent,function(){
             $(this).hide();
         })
+
+        // $('#share-love').on(clickEvent,function(){
+        //     $('.share-layer').show();
+        // })
 
 
     })();
