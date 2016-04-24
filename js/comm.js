@@ -1,45 +1,45 @@
 $(function(){
 
-    var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
-    var transitionEvent = whichTransitionEvent();
-    var animationEvent = whichAnimationEvent();
+    // var clickEvent = (document.ontouchstart!==null) ? 'click' : 'touchstart';
+    // var transitionEvent = whichTransitionEvent();
+    // var animationEvent = whichAnimationEvent();
 
 
-    function whichTransitionEvent(){
-        var t,
-            el = document.createElement("fakeelement");
+    // function whichTransitionEvent(){
+    //     var t,
+    //         el = document.createElement("fakeelement");
 
-        var transitions = {
-            "transition"      : "transitionend",
-            "OTransition"     : "oTransitionEnd",
-            "MozTransition"   : "transitionend",
-            "WebkitTransition": "webkitTransitionEnd"
-        }
+    //     var transitions = {
+    //         "transition"      : "transitionend",
+    //         "OTransition"     : "oTransitionEnd",
+    //         "MozTransition"   : "transitionend",
+    //         "WebkitTransition": "webkitTransitionEnd"
+    //     }
 
-        for (t in transitions){
-            if (el.style[t] !== undefined){
-                return transitions[t];
-            }
-        }
-    }
+    //     for (t in transitions){
+    //         if (el.style[t] !== undefined){
+    //             return transitions[t];
+    //         }
+    //     }
+    // }
 
-    function whichAnimationEvent(){
-        var t,
-            el = document.createElement("fakeelement");
+    // function whichAnimationEvent(){
+    //     var t,
+    //         el = document.createElement("fakeelement");
 
-        var animations = {
-            "animation"      : "animationend",
-            "OAnimation"     : "oAnimationEnd",
-            "MozAnimation"   : "animationend",
-            "WebkitAnimation": "webkitAnimationEnd"
-        }
+    //     var animations = {
+    //         "animation"      : "animationend",
+    //         "OAnimation"     : "oAnimationEnd",
+    //         "MozAnimation"   : "animationend",
+    //         "WebkitAnimation": "webkitAnimationEnd"
+    //     }
 
-        for (t in animations){
-            if (el.style[t] !== undefined){
-                return animations[t];
-            }
-        }
-    }
+    //     for (t in animations){
+    //         if (el.style[t] !== undefined){
+    //             return animations[t];
+    //         }
+    //     }
+    // }
 
 
     // 预加载动画
@@ -74,41 +74,41 @@ $(function(){
     //     }
     // });
 
-    // 背景音乐控制
-    var bgMusic = $('#bgMusic');
-    var bgMusicContr = $('#bgMusicContr');
-    var bgAudio = document.getElementById("bgMusic");
-    $(document).on(clickEvent, '#bgMusicContr', function(e) {
-        var $this = $(this);
-        if (!$this.hasClass('playing')) {
-            document.getElementById("bgMusic").play();
-            typeof localStorage !== undefined && localStorage.setItem('musicDefault', true);
-        } else {
-            document.getElementById("bgMusic").pause();
-            typeof localStorage !== undefined && localStorage.setItem('musicDefault', false);
-        }
-    });
+    // // 背景音乐控制
+    // var bgMusic = $('#bgMusic');
+    // var bgMusicContr = $('#bgMusicContr');
+    // var bgAudio = document.getElementById("bgMusic");
+    // $(document).on(clickEvent, '#bgMusicContr', function(e) {
+    //     var $this = $(this);
+    //     if (!$this.hasClass('playing')) {
+    //         document.getElementById("bgMusic").play();
+    //         typeof localStorage !== undefined && localStorage.setItem('musicDefault', true);
+    //     } else {
+    //         document.getElementById("bgMusic").pause();
+    //         typeof localStorage !== undefined && localStorage.setItem('musicDefault', false);
+    //     }
+    // });
 
-    // 播放事件
-    bgMusic.on('play', function() {
-        bgMusicContr.addClass('playing');
-    });
+    // // 播放事件
+    // bgMusic.on('play', function() {
+    //     bgMusicContr.addClass('playing');
+    // });
 
-    // 暂停事件
-    bgMusic.on('pause', function() {
-        bgMusicContr.removeClass('playing');
-    });
+    // // 暂停事件
+    // bgMusic.on('pause', function() {
+    //     bgMusicContr.removeClass('playing');
+    // });
 
-    // 对不支持自动播放的设备使用一次性的 touchstart 事件触发
-    $(document).one('touchstart', function() {
-        if (typeof localStorage !== undefined) {
-            var musicDefault = localStorage.getItem('musicDefault');
-            if(musicDefault === 'true') {
-                bgAudio.play();
-            }
-        } else {
-            bgAudio.play();
-        }
-    });
+    // // 对不支持自动播放的设备使用一次性的 touchstart 事件触发
+    // $(document).one('touchstart', function() {
+    //     if (typeof localStorage !== undefined) {
+    //         var musicDefault = localStorage.getItem('musicDefault');
+    //         if(musicDefault === 'true') {
+    //             bgAudio.play();
+    //         }
+    //     } else {
+    //         bgAudio.play();
+    //     }
+    // });
 
 });
