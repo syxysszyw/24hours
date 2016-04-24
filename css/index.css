@@ -1300,8 +1300,19 @@ h6 {
   display: none;
 }
 .fulllove img {
+  position: absolute;
   width: 100%;
   height: 100%;
+}
+.fulllove .fulllove-share {
+  position: absolute;
+  display: block;
+  width: 2.3rem;
+  height: .43rem;
+  bottom: .53rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 @-webkit-keyframes showColor {
   0% {
@@ -1325,7 +1336,7 @@ h6 {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 2.65rem;
+  width: 3rem;
   padding-bottom: .1rem;
   border-radius: .12rem;
   background-color: red;
@@ -1368,7 +1379,7 @@ h6 {
   position: relative;
   margin-top: .36rem;
   width: 100%;
-  height: 1.34rem;
+  height: 1.64rem;
 }
 .dialog__video img {
   width: 100%;
@@ -1417,6 +1428,9 @@ h6 {
   background-image: url(../images/99gongyi.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+.dialog#dialog-modal {
+  width: 2.65rem;
 }
 .dialog#dialog-modal .modal__hd {
   padding: .4rem 0 .2rem 0;
